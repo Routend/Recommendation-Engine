@@ -9,13 +9,13 @@ module.exports = {
       var setB;
       var jaccordIndex = [];
       //Fetch locations to compare user interests
-      var currentID = req.body.id_users;
+      var currentID = Number(req.query.id_users);
       models.locations.get(function(err, results) {
         if (err) {
           console.log('Error: ', err);
         }
-
         for (var i = 0; i < results.length; i++) {
+          console.log(results[i].id_users === Number(currentID));
           if (results[i].id_users === currentID) {
             setA.push(results[i].name);
           }
@@ -27,24 +27,24 @@ module.exports = {
           if (results[i].id_users === currentID) {
             continue;
           }
-
           for (var j = 0; j < results.length; j++) {
             if (results[i].id_users === results[j].id_users) {
-              setB.push(results[i].id_users);
+              setB.push(results[i].name);
             }
           }
-
+          
           //Compute jaccord index to quantify similarity b/w setA & setB
           var setIntersection = intersection(setA, setB);
           var setUnion = union(setA, setB);
-
+          
+          console.log(setIntersection, setUnion);
           jaccordIndex.push([setIntersection.length / setUnion.length, results[i].id_users]);
 
 
         }
 
         //Select the 4 most similar users
-        jaccord = jaccordIndex.sort(function(a, b) {
+        jaccordIndex = jaccordIndex.sort(function(a, b) {
           return a[0] < b[0];
         }).slice(0, 4);
 
