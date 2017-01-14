@@ -54,16 +54,16 @@ module.exports = {
           return a[0] < b[0];
         }).slice(0, 4);
 
-        var users = [];
-        for (var i = 0; i < jaccordIndex.length; i++) {
-          var params = [jaccordIndex[i][1]];
-          models.users.getOne(params, function(err, results) {
-            if (err) {
-              console.log('Error: ', err);
-            }
-            users.push(results);
-          });
-        }
+        // var users = [];
+        // for (var i = 0; i < jaccordIndex.length; i++) {
+        //   var params = [jaccordIndex[i][1]];
+        //   models.users.getOne(params, function(err, results) {
+        //     if (err) {
+        //       console.log('Error: ', err);
+        //     }
+        //     users.push(results);
+        //   });
+        // }
         res.json(jaccordIndex);
       });
     });

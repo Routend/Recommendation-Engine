@@ -32,6 +32,21 @@ module.exports = {
       db.query(queryStr, function(err, results) {
         cb(err, results);
       });
+    },
+    getByUser: function(params, cb) {
+      var queryStr = 'SELECT * FROM locations WHERE id_users IN (';
+      for (var i = 0; i < params.length - 1; i++) {
+        if (i === params.length - 2) {
+          queryStr += '?';
+        } else {
+          queryStr += '?,';
+        }
+      }
+      queryStr += ') AND name NOT IN (SELECT name FROM locations WHERE id_users = ?)';
+      console.log('qstr ', queryStr);
+      db.query(queryStr, params, function(err, results) {
+        cb(err, results);
+      });
     }
   }
 }
