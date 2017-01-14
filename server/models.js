@@ -8,6 +8,12 @@ module.exports = {
         cb(err, results);
       });
     },
+    getOne: function(params, cb) {
+      var queryStr = 'SELECT * FROM users WHERE id = ?';
+      db.query(queryStr, params, function(err, results) {
+        cb(err, results);
+      });
+    },
     getNumber: function(cb) {
       var queryStr = 'SELECT COUNT(*) FROM users';
       db.query(queryStr, function(err, results) {

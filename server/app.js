@@ -1,6 +1,6 @@
 var express = require('express');
 var db = require('./db');
-var controller = require('./controllers');
+//var controller = require('./controllers');
 
 var parser = require('body-parser');
 var morgan = require('morgan');

@@ -1,8 +1,9 @@
-var controller = require('./controllers.js');
+var users = require('./controllers/users');
+var locations = require('./controllers/locations');
 var router = require('express').Router();
 
-router.get('/users', controller.users.get);
+router.get('/users', users.get);
 
-router.get('/locations', controller.locations.get);
+router.get('/locations', locations.get);
 
 module.exports = router;
