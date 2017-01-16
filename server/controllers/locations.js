@@ -33,6 +33,7 @@ module.exports = {
             }
           }
 
+
           //Must build setB once for each user
           for (var i = 1; i <= len; i++) {
             setB = [];
@@ -61,7 +62,6 @@ module.exports = {
           }).slice(0, 4);
           var users = [];
           for (var i = 0; i < jaccordIndex.length; i++) {
-            console.log(jaccordIndex);
             users.push(Number(jaccordIndex[i][1]));
           }
           users.push(currentID);
@@ -69,7 +69,6 @@ module.exports = {
             if (err) {
               console.log('Error: ', err);
             }
-
             res.json(results);
           });
         });

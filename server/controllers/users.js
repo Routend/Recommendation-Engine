@@ -11,6 +11,7 @@ module.exports = {
     var len;
     //Fetch locations to compare user interests
     var currentID = Number(req.query.id_users);
+    console.log(req.query);
     models.locations.get(function(err, results) {
       if (err) {
         console.log('Error: ', err);
@@ -27,6 +28,7 @@ module.exports = {
           }
         }
 
+
         //Must build setB once for each user
         for (var i = 1; i <= len; i++) {
           setB = [];
@@ -39,6 +41,7 @@ module.exports = {
             }
           }
 
+        console.log(setA, setB);
           //Compute jaccord index to quantify similarity b/w setA & setB
           var setIntersection = intersection(setA, setB);
           var setUnion = union(setA, setB);
@@ -48,6 +51,8 @@ module.exports = {
         jaccordIndex = uniq(jaccordIndex, function(el) {
           return el[1];
         });
+
+        
 
         //Select the 4 most similar users
         jaccordIndex = jaccordIndex.sort(function(a, b) {

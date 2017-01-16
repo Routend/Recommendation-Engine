@@ -42,8 +42,8 @@ module.exports = {
           queryStr += '?,';
         }
       }
-      queryStr += ') AND name NOT IN (SELECT name FROM locations WHERE id_users = ?)';
-      console.log('qstr ', queryStr);
+      //Don't recommend other users' work or home, and don't recommend locations user already has
+      queryStr += ') AND name NOT IN (SELECT name FROM locations WHERE id_users = ?) AND category <> "work" AND category <> "home"';
       db.query(queryStr, params, function(err, results) {
         cb(err, results);
       });
