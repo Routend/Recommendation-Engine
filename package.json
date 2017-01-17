@@ -1,0 +1,32 @@
+{
+  "name": "recommendation-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "lodash.intersection": "^4.4.0",
+    "lodash.union": "^4.6.0",
+    "lodash.uniqby": "^4.7.0",
+    "morgan": "^1.7.0",
+    "mysql": "^2.12.0",
+    "redis": "^2.6.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha ./spec/recommendationSpec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Routend/Recommendation-Engine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Routend/Recommendation-Engine/issues"
+  },
+  "homepage": "https://github.com/Routend/Recommendation-Engine#readme"
+}
