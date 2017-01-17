@@ -5,6 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "forever": "^0.15.3",
     "lodash.intersection": "^4.4.0",
     "lodash.union": "^4.6.0",
     "lodash.uniqby": "^4.7.0",
