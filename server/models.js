@@ -48,5 +48,13 @@ module.exports = {
         cb(err, results);
       });
     }
+  },
+  matches: {
+    get: function(params, cb) {
+      var queryStr = 'SELECT * FROM matches WHERE id_users = ? OR match_id = ?';
+      db.query(queryStr, params, function(err, results) {
+        cb(err, results);
+      });
+    }
   }
 }
