@@ -56,5 +56,13 @@ module.exports = {
         cb(err, results);
       });
     }
+  },
+  profiles: {
+    get: function(params, cb) {
+      var queryStr = 'SELECT * FROM profiles WHERE id_users IN (?, ?, ?, ?)';
+      db.query(queryStr, params, function(err, results) {
+        cb(err, results);
+      });
+    }
   }
 }
