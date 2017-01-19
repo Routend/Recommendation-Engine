@@ -65,8 +65,14 @@ module.exports = {
             return true;
           });
 
-
-          res.json(jaccordIndex);
+          //Get and send profile info for each user id
+          var params = [];
+          for (var i = 0; i < jaccordIndex.length; i++) {
+            params.push(jaccordIndex[i][1]);
+          }
+          models.profiles.get(params, function(err, results) {
+            res.json(results);
+          });
         });
       });
     });
